@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="title">
+    <p>ЛИЧНЫЕ ДАННЫЕ</p>
+  </div>
+  <table *ngIf="usersList?.length > 0">
+    <thead>
+    <tr>
+      <th class="firstName">Имя</th>
+      <th class="lastName">Фамилия</th>
+      <th class="middleName">Отчество</th>
+      <th class="dateOfBirth">Дата рождения</th>
+      <th class="sex">Пол</th>
+      <th class="country">Страна</th>
+      <th *ngIf="usersList?.length > 1" class="info">Функции</th>
+      <th *ngIf="usersList?.length === 1" class="info">Инфо</th>
+    </tr>
+    </thead>
+    <tbody>
+          <tr *ngFor="let user of usersList; let i = index">
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.middleName}}</td>
+          <td>{{user.dateOfBirth}}</td>
+          <td>{{user.sex}}</td>
+          <td>{{user.originCountry}}</td>
+          <td *ngIf="usersList?.length > 1" class="correct"><a
+            (click)="setId(i); goTab('form/(form:userEdit', i)"><span>Править
+          </span></a></td>
+            <td *ngIf="usersList?.length === 1" class="moreInfo" (click)="show = !show"><span>Доп. инфо</span>
+              <app-tooltip *ngIf="show"></app-tooltip>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <div *ngIf="usersList?.length === 1" class="card-data">
+    <a><span>ДАННЫЕ КРЕДИТНОЙ КАРТЫ</span></a>
+  </div>
+</div>
+<div class="button-wrapper">
+  <div *ngIf="usersList?.length === 1" class="link-wrapper">
+    <a class="nav-link" (click)="goTab('form/(form:creditCard)')">Данные кредитной карты</a>
+  </div>
+  <button class="nav button">Сохранить</button>
+</div>
+
+

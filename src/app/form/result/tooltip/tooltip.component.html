@@ -1,0 +1,41 @@
+<div class="container">
+  <ul>
+    <li>
+      <span>Адрес, почтовый индекс:</span>
+      <br>
+      <span>{{uniqueUser.address}}</span>
+    </li>
+    <li>
+      <span>Девичья фамилия матери:</span>
+      <br>
+      <span>{{uniqueUser.mothersMaidenName}}</span>
+    </li>
+    <li>
+      <span>Кодовое слово в Вашем банке:</span>
+      <br>
+      <span>{{uniqueUser.keyWord}}</span>
+    </li>
+    <li>
+      <span>Как вы узнали о нашем сайте:</span>
+      <br>
+      <span>{{uniqueUser.infoSource}}</span>
+    </li>
+    <li>
+      <span>Email друга:</span>
+      <br>
+      <span>{{uniqueUser.friendsEmail}}</span>
+    </li>
+    <li>
+      <span *ngIf="uniqueUser.sex === 'Мужской'">Номер телефона своей девушки:</span>
+      <span *ngIf="uniqueUser.sex === 'Женский'">Номер телефона своего парня:</span>
+      <br>
+      <span>{{uniqueUser.phoneNumber}}</span>
+    </li>
+    <li>
+      <span *ngIf="uniqueUser.sex === 'Женский'">Какую сковороду предпочитаешь:</span>
+      <span *ngIf="uniqueUser.sex === 'Мужской'">Любимая футбольная команда:</span>
+      <br>
+      <span>{{uniqueUser.extraInfo}}</span>
+    </li>
+  </ul>
+</div>

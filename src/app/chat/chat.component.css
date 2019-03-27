@@ -1,0 +1,125 @@
+.operator-header {
+  display: flex;
+  flex: 0 0 auto;
+  height: 70px;
+  align-items: center;
+  font-size: 14px;
+  padding-left: -15px;
+}
+
+.operator-header:before, .message-container:before {
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin: 20px;
+  box-sizing: border-box;
+  border: 1px solid #d8d8d8;
+  background-image: url(img/operator.png);
+  background-size: contain;
+}
+
+.message-container::before {
+  position: relative;
+  top: 65px;
+}
+
+.operator-name {
+  position: relative;
+  left: -5px;
+}
+
+.operator-name:after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #7cc576;
+}
+
+.field {
+  flex: 1 0 auto;
+  height: 320px;
+  margin: 5px 5px 5px 0;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+}
+
+.message-container {
+  position: relative;
+}
+
+.message {
+  flex: 0 0 auto;
+  border-radius: 8px;
+  font-size: 13px;
+  min-height: 39px;
+  box-sizing: border-box;
+  padding:  9px 5px 5px 13px;
+  margin: 0 20px 24px 65px;
+  word-wrap: break-word;
+}
+
+.message.answer {
+  background-color: #f5f5f5;
+
+}
+
+.message.question {
+  background-color: #c8f9f0;
+}
+
+.message-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  height: 60px;
+  border-top: 2px solid #f0f0f0;
+}
+
+textarea {
+  width: 80%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 10px 5px 5px 20px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.send-button {
+  margin-right: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #ffed8d url("img/arrow-1.png") no-repeat center center;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-button  {
+  display: none;
+}
+
+::-webkit-scrollbar-track  {
+  visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  -webkit-border-radius: 6px;
+}

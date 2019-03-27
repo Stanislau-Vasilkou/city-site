@@ -1,0 +1,21 @@
+  <section>
+    <div class="title">
+      <p class="name">Типовая форма</p>
+      <div class="form-menu">
+        <nav>
+          <ul>
+            <li><a [routerLink]="[{outlets :{form: ['userEdit', id]}}]" routerLinkActive="active"
+                   [routerLinkActiveOptions]="{exact: true}"><span>Личные данные</span></a></li>
+            <li><a [routerLink]="[{outlets :{form: 'creditCard'}}]" routerLinkActive="active"><span>Данные кредитной
+              карты</span></a></li>
+            <li><a [routerLink]="[{outlets :{form: 'result'}}]"
+                   routerLinkActive="active"><span>Результат</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <router-outlet name="form"></router-outlet>
+  </section>
+  <aside>
+    <app-chat></app-chat>
+  </aside>

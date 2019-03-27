@@ -1,0 +1,14 @@
+  <div class="operator-header">
+    <p class="operator-name">Анна в чате</p>
+  </div>
+  <div class="field">
+    <div *ngFor="let mess of store" class="message question">{{mess}}</div>
+    <div *ngIf="greeting" class="message-container">
+      <div class="message answer">{{greeting}}
+      </div>
+    </div>
+  </div>
+  <div class="message-input">
+    <textarea name="" id="inp" cols="20" rows="6" placeholder="Ваше сообщение..." #messtext></textarea>
+    <button class="send-button" (click)="show(messtext.value); messtext.value = ''"></button>
+  </div>

@@ -1,0 +1,67 @@
+input[type="radio"] {
+  display: none;
+  /*-moz-appearance: none;*/
+}
+
+.outer-circle {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ffffff;
+  box-shadow: 7px 7px 13px -17px rgba(0, 0, 0, .2) inset;
+}
+
+.inner-circle {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 4px 0 0 4px;
+  border: 0;
+  border-radius: 7px;
+  background-color: #ffffff;
+}
+
+input[type="radio"]:checked + label .inner-circle {
+  background-color: #0f0f0f;
+}
+
+input[type="radio"] + label:hover {
+  cursor: pointer;
+}
+
+input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+input[type="file"] + label {
+  display: inline-block;
+}
+
+input[type="file"]:focus + label,
+input[type="file"] + label:hover {
+
+}
+
+.button {
+  width: 123px;
+  height: 42px;
+  cursor: pointer;
+  background-color: #0ec5a6;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 1px 1px rgba(0,169,139,0.9);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  outline: none;
+}

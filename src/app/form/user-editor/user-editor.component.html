@@ -1,0 +1,120 @@
+<div class="form-content">
+  <p>Все поля формы обязательны для заполнения</p>
+  <form [formGroup]="userForm">
+    <ul class="flex-outer">
+      <li>
+        <label for="firstName">Имя:</label>
+        <div class="input-wrapper">
+          <input type="text" id="firstName" formControlName="firstName" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('firstName')">{{catchError('firstName')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="lastName">Фамилия:</label>
+        <div class="input-wrapper">
+          <input type="text" id="lastName" formControlName="lastName" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('lastName')">{{catchError('lastName')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="middleName">Отчество:</label>
+        <div class="input-wrapper">
+          <input type="text" id="middleName" formControlName="middleName" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('middleName')">{{catchError('middleName')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="dateOfBirth">Дата рождения: {{date}}</label>
+        <div class="input-wrapper cldr">
+            <input type="text" id="dateOfBirth" name="dp"  ngbDatepicker
+                   #d="ngbDatepicker"
+                   formControlName="dateOfBirth">
+            <button id="cldr-button" (click)="d.toggle()"></button>
+          <div class="error" *ngIf="isInvalid('dateOfBirth')">{{catchError('dateOfBirth')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="sex">Пол:</label>
+        <div class="input-wrapper" id="sex">
+          <input type="radio" name="sex" id="men" #sex value="Мужской" formControlName="sex">
+          <label for="men">
+            <span class="outer-circle"><span class="inner-circle"></span></span>
+            Мужской
+          </label>
+          <input type="radio" name="sex" id="women" value="Женский" formControlName="sex">
+          <label for="women">
+            <span class="outer-circle"><span class="inner-circle"></span></span>
+            Женский
+          </label>
+        </div>
+      </li>
+      <li>
+        <label for="originCountry">Страна проживания:</label>
+        <div class="input-wrapper">
+          <select formControlName="originCountry" id="originCountry">
+              <option *ngFor="let country of countriesList" value="{{country.name}}">{{country.name}}</option>
+            </select>
+          <div class="error" *ngIf="isInvalid('originCountry')">{{catchError('originCountry')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="address">Адрес, почтовый индекс:</label>
+        <div class="input-wrapper">
+          <input type="text" id="address" formControlName="address" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('address')">{{catchError('address')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="mothersMaidenName">Девичья фамилия матери:</label>
+        <div class="input-wrapper">
+          <input type="text" id="mothersMaidenName" formControlName="mothersMaidenName" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('mothersMaidenName')">{{catchError('mothersMaidenName')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="keyWord">Кодовое слово в Вашем банке:</label>
+        <div class="input-wrapper">
+          <input type="text" id="keyWord" formControlName="keyWord" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('keyWord')">{{catchError('keyWord')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="infoSource" class="info-source">Как Вы узнали о нашем сайте:</label>
+        <div class="textarea-wrapper">
+          <textarea name="" id="infoSource" formControlName="infoSource"></textarea>
+          <div class="error" *ngIf="isInvalid('infoSource')">{{catchError('infoSource')}}</div>
+        </div>
+      </li>
+      <li>
+        <label for="friendsEmail">Email друга:</label>
+        <div class="input-wrapper">
+          <input type="email" id="friendsEmail" formControlName="friendsEmail" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('friendsEmail')">{{catchError('friendsEmail')}}</div>
+        </div>
+      </li>
+      <li>
+        <label *ngIf="!sex.checked" for="phoneNumber">Номер телефона своего парня:</label>
+        <label *ngIf="sex.checked"  for="phoneNumber">Номер телефона своей девушки:</label>
+        <div class="input-wrapper">
+          <input type="tel" id="phoneNumber" formControlName="phoneNumber" autocomplete="off">
+          <div class="error" *ngIf="isInvalid('phoneNumber')">{{catchError('phoneNumber')}}</div>
+        </div>
+      </li>
+      <li>
+        <label *ngIf="!sex.checked" for="extraInfo">Какую сковороду предпочитаешь:</label>
+        <label *ngIf="sex.checked" for="extraInfo">Любимая футбольная команда:</label>
+        <div class="input-wrapper">
+          <!--<input type="text" id="extraInfo" formControlName="extraInfo" autocomplete="off">-->
+          <input type="text" list="fcTeams" formControlName="extraInfo" id="extraInfo" autocomplete="off">
+          <datalist id="fcTeams">
+            <option *ngFor="let footballClub of fcTeams" value="{{footballClub.name}}">
+          </datalist>
+          <div class="error" *ngIf="isInvalid('extraInfo')">{{catchError('extraInfo')}}</div>
+        </div>
+      </li>
+    </ul>
+  </form>
+</div>
+<div class="button-wrapper">
+  <button class="nav button" (click)="getUserInfo(id)">Далее</button>
+</div>

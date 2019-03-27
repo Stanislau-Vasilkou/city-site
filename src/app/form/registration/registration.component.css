@@ -1,0 +1,57 @@
+.container {
+  margin-top: 36px;
+  flex: 0 0 auto;
+  width: 420px;
+  height: 335px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+}
+
+p {
+  font-size: 14px;
+  padding-left: 22px;
+}
+
+.input-wrapper {
+  margin-left: 45px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.modal-window {
+  margin-top: 65px;
+  margin-left: 38px;
+  width: 80%;
+  height: 80%;
+}
+
+#file + label {
+  margin-left: 68px;
+}
+
+#file + label span:first-child {
+  border-bottom: 1px dashed #00b79a;
+  color: #00b79a;
+  font-size: 14.3px;
+  cursor: pointer;
+}
+
+#file + label span:first-child:hover {
+  color: #ff3000;
+  border-color: #ff3000;
+}
+
+#file + label span:not(first-child) {
+  color: #0f0f0f;
+  font-size: 13.1px;
+}
+
+.button-wrapper {
+  position: absolute;
+}
+
+button {
+  position: absolute;
+  top: 42px;
+  left: 45px;
+}
